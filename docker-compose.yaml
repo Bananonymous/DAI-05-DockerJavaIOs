@@ -1,0 +1,12 @@
+services:
+  writer:
+    image: ghcr.io/bananonymous/java-ios-docker:latest
+    command: "--implementation BUFFERED_BINARY /data/100bytes.bin write --size 100"
+    volumes:
+    - ./data:/data
+
+  reader:
+    image: ghcr.io/bananonymous/java-ios-docker:latest
+    command: "--implementation BUFFERED_BINARY /data/100bytes.bin read"
+    volumes:
+    - ./data:/data
